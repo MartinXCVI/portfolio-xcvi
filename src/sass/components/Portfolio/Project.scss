@@ -56,7 +56,7 @@
 }
 
 .project-link {
-  width: 7rem;
+  width: 7.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -80,7 +80,6 @@
   }
   .project-link-icon {
     margin-left: 0.25rem;
-    font-size: 1.15rem;
   }
 }
 
@@ -126,7 +125,7 @@
 @media all and (min-width: 576px) and (max-width: 767px) {
 
   .project-link {
-    width: 11rem;
+    width: 11.5rem;
   }
 }
 

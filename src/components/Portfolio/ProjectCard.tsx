@@ -5,6 +5,8 @@ import type { IProjectCard } from "../../interfaces/IProjectCard";
 import { FaRegEye } from "react-icons/fa";
 import { RiGitRepositoryLine } from "react-icons/ri";
 
+const btnSize: number = 20 as const
+
 const ProjectCard = ({ title, img, description, hasPreview, page, repository }: IProjectCard): JSX.Element => {
 
   return (
@@ -13,11 +15,17 @@ const ProjectCard = ({ title, img, description, hasPreview, page, repository }: 
       <figure className='project-fig'>
         <a
           className="project-cover-link"
-          href={page}
+          href={hasPreview ? page : repository}
           target='_blank'
           rel='noopener noreferrer'
         >
-          <img src={img} className='project-img' alt={title} />
+          <img
+            src={img}
+            className='project-img'
+            alt={`${title} illustrative cover`}
+            loading="lazy"
+            decoding="async"
+          />
         </a>
       </figure>
       <p className='project-description'>{description}</p>
@@ -29,7 +37,7 @@ const ProjectCard = ({ title, img, description, hasPreview, page, repository }: 
             rel='noopener noreferrer' 
             target='_blank'
           >
-            Preview <FaRegEye className='project-link-icon' />
+            Preview <FaRegEye className='project-link-icon' size={btnSize} />
           </a>
         )}
         <a
@@ -38,7 +46,7 @@ const ProjectCard = ({ title, img, description, hasPreview, page, repository }: 
           rel='noopener noreferrer' 
           target='_blank'
         >
-          Repository <RiGitRepositoryLine className='project-link-icon' />
+          Repository <RiGitRepositoryLine className='project-link-icon' size={btnSize} />
         </a>
       </div>
     </div>

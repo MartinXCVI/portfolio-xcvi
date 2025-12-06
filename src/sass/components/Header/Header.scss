@@ -35,9 +35,6 @@
     align-items: center;
     color: colors.$white;
   }
-  .nav-icon {
-    vertical-align: middle;
-  }  
 }
 
 .nav-item {
@@ -63,46 +60,6 @@
   }
 }
 
-/*---------- to 480px ----------*/
-
-@media all and (max-width: 480px) {
-  .navigation .nav-list {
-    .nav-item {
-      width: 75%;
-    }
-  }
-}
-
-/*---------- from 481 to 639px ----------*/
-
-@media all and (min-width: 481px) and (max-width: 639px) {
-  .navigation .nav-list {
-    .nav-item {
-      width: 60%;
-    }
-  }
-}
-
-/*---------- from 640 to 767px ----------*/
-
-@media all and (min-width: 640px) and (max-width: 767px) {
-  .navigation .nav-list {
-    .nav-item {
-      width: 45%;
-    }
-  }
-}
-
-/*---------- from 768 to 959px ----------*/
-
-@media all and (min-width: 768px) and (max-width: 959px) {
-  .navigation .nav-list {
-    .nav-item {
-      width: 35%;
-    }
-  }
-}
-
 /*---------- to 959px ----------*/
 
 @media all and (max-width: 959px) {
@@ -110,7 +67,9 @@
   .heading {
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     .hero-section {
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -121,16 +80,38 @@
     }
   }
 
-  .navigation .nav-list {
+  .navigation {
     width: 100%;
-    flex-direction: column;
-    .nav-item {
-      font-size: 1rem;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      a {
-        font-size: 1.2rem;
-        letter-spacing: 0.15rem;
+    align-items: center;
+    .nav-list {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      margin-top: 0.5rem;
+      .nav-item {
+        width: auto;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        .nav-link {
+          min-width: 200px;
+          display: grid;
+          grid-template-columns: 1.5rem 1fr; // Icon column + text column
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 1.1rem;
+          letter-spacing: 0.05rem;
+          padding: 0.75rem 1rem;
+          margin-left: 3.25rem;
+          border-radius: 0; // Removing rounded corners for full-width look
+          white-space: nowrap;
+          // Icon styling
+          svg {
+            flex-shrink: 0; // Preventing icon from shrinking
+            width: 1.5rem;
+            height: 1.5rem;
+          }
+        }
       }
     }
   }
@@ -140,15 +121,21 @@
   #open-menu, #close-menu {
     color: colors.$white;
     background-color: unset;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:active {
+      transform: scale(0.95);
+    }
   }
 
-  .open-menu-icon, .close-menu-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
+
 
   .open-menu-visible {
     display: block;
+    animation: fadeIn 0.3s ease;
   }
 
   .open-menu-hidden {
@@ -157,6 +144,7 @@
 
   .close-button-visible {
     display: block;
+    animation: rotateIn 0.3s ease;
   }
   .close-button-hidden {
     display: none;
@@ -164,37 +152,81 @@
 
   .navigation {
     position: relative;
-    .menu {
-      height: 15rem;
-      display: flex;
-      flex-direction: column;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      // background: white; // Change as needed
-      transition: 0.3s linear all;
-      opacity: 1;
-      transform: translateY(0);
-      .nav-item {
-        height: 100%;
-        transform: rotateX(0deg);
-        transition: 0.3s linear all;
+    overflow: hidden;
+    .nav-list {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.3s ease,
+                  transform 0.3s ease;
+
+      // Open state
+      &:not(.menu-hidden) {
+        max-height: 500px; // Adjust based on the content
+        opacity: 1;
+        transform: translateY(0);
+        
+        .nav-item {
+          animation: slideInUp 0.4s ease backwards;
+          
+          // Staggered animation delay for each item
+          &:nth-child(1) { animation-delay: 0.075s; }
+          &:nth-child(2) { animation-delay: 0.125s; }
+          &:nth-child(3) { animation-delay: 0.175s; }
+          &:nth-child(4) { animation-delay: 0.225s; }
+          &:nth-child(5) { animation-delay: 0.275s; }
+        }
+      }
+      // Closed state
+      .menu-hidden {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-20px);
+        pointer-events: none;
+        
+        .nav-item {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
       }
     }
   }
 
-  .navigation .menu-hidden {
-    height: 0rem;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: 0.3s linear all;
-    pointer-events: none; // Prevent clicks when hidden
-    .nav-item {
-      height: 0rem;
-      transform: rotateX(90deg);
-      transition: 0.3s linear all;
+  // Animations
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes rotateIn {
+    from {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  /*----- END: Burger menu -----*/
 
 }
 

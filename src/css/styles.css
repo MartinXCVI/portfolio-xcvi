@@ -144,9 +144,6 @@ button {
   align-items: center;
   color: #f6f6f6;
 }
-.navigation .nav-icon {
-  vertical-align: middle;
-}
 
 .nav-item {
   padding: 0.25rem 0.5rem;
@@ -171,37 +168,15 @@ button {
   color: springgreen;
 }
 
-/*---------- to 480px ----------*/
-@media all and (max-width: 480px) {
-  .navigation .nav-list .nav-item {
-    width: 75%;
-  }
-}
-/*---------- from 481 to 639px ----------*/
-@media all and (min-width: 481px) and (max-width: 639px) {
-  .navigation .nav-list .nav-item {
-    width: 60%;
-  }
-}
-/*---------- from 640 to 767px ----------*/
-@media all and (min-width: 640px) and (max-width: 767px) {
-  .navigation .nav-list .nav-item {
-    width: 45%;
-  }
-}
-/*---------- from 768 to 959px ----------*/
-@media all and (min-width: 768px) and (max-width: 959px) {
-  .navigation .nav-list .nav-item {
-    width: 35%;
-  }
-}
 /*---------- to 959px ----------*/
 @media all and (max-width: 959px) {
   .heading {
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
   }
   .heading .hero-section {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,71 +185,140 @@ button {
     text-align: center;
     margin-bottom: 1rem;
   }
+  .navigation {
+    width: 100%;
+    align-items: center;
+  }
   .navigation .nav-list {
     width: 100%;
     flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 0.5rem;
   }
   .navigation .nav-list .nav-item {
-    font-size: 1rem;
+    width: auto;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-  .navigation .nav-list .nav-item a {
-    font-size: 1.2rem;
-    letter-spacing: 0.15rem;
+  .navigation .nav-list .nav-item .nav-link {
+    min-width: 200px;
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+    margin-left: 3.25rem;
+    border-radius: 0;
+    white-space: nowrap;
+  }
+  .navigation .nav-list .nav-item .nav-link svg {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
   }
   /*----- Burger menu -----*/
   #open-menu, #close-menu {
     color: #f6f6f6;
     background-color: unset;
+    cursor: pointer;
+    transition: transform 0.2s ease;
   }
-  .open-menu-icon, .close-menu-icon {
-    width: 2.5rem;
-    height: 2.5rem;
+  #open-menu:hover, #close-menu:hover {
+    transform: scale(1.1);
+  }
+  #open-menu:active, #close-menu:active {
+    transform: scale(0.95);
   }
   .open-menu-visible {
     display: block;
+    animation: fadeIn 0.3s ease;
   }
   .open-menu-hidden {
     display: none;
   }
   .close-button-visible {
     display: block;
+    animation: rotateIn 0.3s ease;
   }
   .close-button-hidden {
     display: none;
   }
   .navigation {
     position: relative;
+    overflow: hidden;
   }
-  .navigation .menu {
-    height: 15rem;
-    display: flex;
-    flex-direction: column;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    transition: 0.3s linear all;
+  .navigation .nav-list {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.3s ease;
+  }
+  .navigation .nav-list:not(.menu-hidden) {
+    max-height: 500px;
     opacity: 1;
     transform: translateY(0);
   }
-  .navigation .menu .nav-item {
-    height: 100%;
-    transform: rotateX(0deg);
-    transition: 0.3s linear all;
+  .navigation .nav-list:not(.menu-hidden) .nav-item {
+    animation: slideInUp 0.4s ease backwards;
   }
-  .navigation .menu-hidden {
-    height: 0rem;
+  .navigation .nav-list:not(.menu-hidden) .nav-item:nth-child(1) {
+    animation-delay: 0.075s;
+  }
+  .navigation .nav-list:not(.menu-hidden) .nav-item:nth-child(2) {
+    animation-delay: 0.125s;
+  }
+  .navigation .nav-list:not(.menu-hidden) .nav-item:nth-child(3) {
+    animation-delay: 0.175s;
+  }
+  .navigation .nav-list:not(.menu-hidden) .nav-item:nth-child(4) {
+    animation-delay: 0.225s;
+  }
+  .navigation .nav-list:not(.menu-hidden) .nav-item:nth-child(5) {
+    animation-delay: 0.275s;
+  }
+  .navigation .nav-list .menu-hidden {
+    max-height: 0;
     opacity: 0;
     transform: translateY(-20px);
-    transition: 0.3s linear all;
     pointer-events: none;
   }
-  .navigation .menu-hidden .nav-item {
-    height: 0rem;
-    transform: rotateX(90deg);
-    transition: 0.3s linear all;
+  .navigation .nav-list .menu-hidden .nav-item {
+    opacity: 0;
+    transform: translateY(-10px);
   }
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes rotateIn {
+    from {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+  /*----- END: Burger menu -----*/
 }
 /*---------- from 960px ----------*/
 @media all and (min-width: 960px) {
@@ -317,6 +361,8 @@ button {
   justify-content: center;
   align-items: center;
   padding-bottom: 3rem;
+  position: relative;
+  z-index: 10;
 }
 .home-section .dev-description {
   display: flex;
@@ -358,8 +404,6 @@ button {
   margin-right: 0rem;
 }
 .dev-buttons-section .about-btn .dev-icon {
-  height: 1.25rem;
-  font-size: 1.25rem;
   margin-left: 0.25rem;
 }
 
@@ -388,8 +432,6 @@ button {
   box-shadow: 0rem 0rem 0rem #252525;
 }
 .dev-btn .dev-icon {
-  height: 1.25rem;
-  font-size: 1.25rem;
   margin-left: 0.25rem;
 }
 
@@ -704,7 +746,7 @@ button {
 }
 
 .project-link {
-  width: 7rem;
+  width: 7.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -729,7 +771,6 @@ button {
 }
 .project-link .project-link-icon {
   margin-left: 0.25rem;
-  font-size: 1.15rem;
 }
 
 /*---------- to 375px ----------*/
@@ -763,7 +804,7 @@ button {
 }
 @media all and (min-width: 576px) and (max-width: 767px) {
   .project-link {
-    width: 11rem;
+    width: 11.5rem;
   }
 }
 @media all and (max-width: 767px) {

@@ -6,39 +6,54 @@ import IdCard from "@lucide/astro/icons/id-card"
 import Mails from "@lucide/astro/icons/mails"
 import Menu from "@lucide/astro/icons/menu"
 import CircleX from "@lucide/astro/icons/circle-x"
+
+import { siteConfig } from "../../config/site.config"
+
+const { site } = siteConfig
+const btnSize: number = 20 as const
 ---
 
 <header class='heading'>
   <section class='hero-section'>
     <h1 class='hero-title'>
-      <a href='#portfolio-wrapper'>{'<'}MartinXCVI {'/>'}</a>
+      <a href='#portfolio-wrapper'>{'<'}{site.siteName} {'/>'}</a>
     </h1>
   </section>
   <nav class='navigation'>
     <!-- Open menu -->
-    <button id="open-menu" class="open-button-visible" aria-label="Open menu" aria-expanded="false">
-      <Menu class="open-menu-icon" />
+    <button id="open-menu" class="open-menu-visible" aria-label="Open menu" aria-expanded="false">
+      <Menu class="open-menu-icon" size={40} />
     </button>
     <!-- Close menu -->
     <button id="close-menu" class="close-button-hidden" aria-label="Close menu" aria-expanded="false">
-      <CircleX class="close-menu-icon" />
+      <CircleX class="close-menu-icon" size={40} />
     </button>
     <!-- Navigation -->
     <ul class='nav-list menu-hidden'>
       <li class='nav-item'>
-        <a class="nav-link" href='#home-wrapper'><House /> Home</a>
+        <a class="nav-link" href='#home-wrapper'>
+          <House size={btnSize} /> Home
+        </a>
       </li>
       <li class='nav-item'>
-        <a class="nav-link" href='#portfolio-wrapper'><BriefcaseBusiness class='nav-icon' /> Portfolio</a>
+        <a class="nav-link" href='#portfolio-wrapper'>
+          <BriefcaseBusiness size={btnSize} /> Portfolio
+        </a>
       </li>
       <li class='nav-item'>
-        <a class="nav-link" href='#skills-wrapper'><PencilRuler/> Skills</a>
+        <a class="nav-link" href='#skills-wrapper'>
+          <PencilRuler size={btnSize} /> Skills
+        </a>
       </li>
       <li class='nav-item'>
-        <a class="nav-link" href='#about-wrapper'><IdCard class='nav-icon' /> About</a>
+        <a class="nav-link" href='#about-wrapper'>
+          <IdCard size={btnSize} /> About
+        </a>
       </li>
       <li class='nav-item'>
-        <a class="nav-link" href='#contact-wrapper'><Mails class='nav-icon' /> Contact</a>
+        <a class="nav-link" href='#contact-wrapper'>
+          <Mails size={btnSize} /> Contact
+        </a>
       </li>
     </ul>
   </nav>

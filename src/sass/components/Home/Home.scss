@@ -18,6 +18,8 @@
 .home-section {
   @include mx.flexRowCenter();
   padding-bottom: 3rem;
+  position: relative;
+  z-index: 10;
   .dev-description {
     @include mx.flexColCenter();
     padding: 0.5rem 1rem 1rem;
@@ -52,8 +54,6 @@
   .about-btn {
     margin-right: 0rem;
     .dev-icon {
-      height: 1.25rem;
-      font-size: 1.25rem;
       margin-left: 0.25rem;
     }
   }
@@ -81,8 +81,6 @@
     box-shadow: 0rem 0rem 0rem colors.$black25;
   }
   .dev-icon {
-    height: 1.25rem;
-    font-size: 1.25rem;
     margin-left: 0.25rem;
   }
 }

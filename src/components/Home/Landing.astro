@@ -8,26 +8,28 @@ import Github from 'simple-icons-astro/Github'
 import { FaLinkedin } from "react-icons/fa";
 import Mail from '@lucide/astro/icons/mail'
 import FolderOpen from '@lucide/astro/icons/folder-open'
+
+const btnSize: number = 20 as const
 ---
 
 <section class='home-wrapper wrapper' id='home-wrapper'>
   <section class='home-section'>
     <article class='dev-description'>
-      {/* DEV NAME */}
+      <!-- Dev name -->
       <h2
         class='dev-name'
       >
         {site.fullName}
       </h2>
-      {/* DEV ROLE */}
+      <!-- Dev role -->
       <h2
         class='dev-job'
       >
         {site.tagline}
       </h2>
-      {/* DEV BUTTONS SECTION */}
+      <!-- Dev buttons section -->
       <section class='dev-buttons-section'>
-        {/* GITHUB BUTTON */}
+        <!-- Github -->
         <a
           class='dev-btn'
           href={socials.github}
@@ -35,9 +37,9 @@ import FolderOpen from '@lucide/astro/icons/folder-open'
           rel="noopener noreferrer"
           title='Github'
         >
-          Github <Github class="dev-icon" />
+          Github <Github class="dev-icon" size={btnSize} />
         </a>
-        {/* LINKEDIN BUTTON */}
+        <!-- LinkedIn -->
         <a
           class='dev-btn'
           href={socials.linkedin}
@@ -45,23 +47,23 @@ import FolderOpen from '@lucide/astro/icons/folder-open'
           rel="noopener noreferrer"
           title='LinkedIn'
         >
-          LinkedIn <FaLinkedin className='dev-icon' />
+          LinkedIn <FaLinkedin className='dev-icon' size={btnSize} />
         </a>
-        {/* EMAIL BUTTON */}
+        <!-- Email -->
         <a
           class='dev-btn'
           href={`mailto:${site.email}`}
           title='Email'
         >
-          Email <Mail class='dev-icon' />
+          Email <Mail class='dev-icon' size={btnSize} />
         </a>
-        {/* PROJECTS BUTTON */}
+        <!-- Projects -->
         <a
           class='dev-btn'
           href="#portfolio-wrapper"
           title='Projects'
         >
-          Projects <FolderOpen class='dev-icon' />
+          Projects <FolderOpen class='dev-icon' size={btnSize} />
         </a>
       </section>
     </article>
