@@ -1,0 +1,8 @@
+---
+const { skillName } = Astro.props
+---
+
+<div class='skills-box'>
+  <h4 class='skills-name'>{skillName}</h4>
+  <slot name="skill-icon" />
+</div>

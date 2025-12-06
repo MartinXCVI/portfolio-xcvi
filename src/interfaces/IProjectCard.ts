@@ -1,10 +1,8 @@
 export interface IProjectCard {
-  aosAnim: string;
-  aosDuration: string;
-  aosDelay: string;
   title: string;
   img: string;
   description: string;
-  page: string;
+  hasPreview: boolean;
+  page?: string;
   repository: string;
 }

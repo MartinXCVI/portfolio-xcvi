@@ -1,3 +1,3 @@
-export const getCurrentYear = ()=> {
+export const getCurrentYear = (): number => {
   return ( new Date().getFullYear() )
 }

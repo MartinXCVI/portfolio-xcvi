@@ -1,0 +1,54 @@
+---
+import SkillCard from "./SkillCard.astro";
+
+// Icons (techicons.dev)
+import ViteIcon from "./icons/additional/ViteIcon.astro";
+import PostmanIcon from "./icons/additional/PostmanIcon.astro";
+import GitIcon from "./icons/additional/GitIcon.astro";
+import SASSIcon from "./icons/additional/SASSIcon.astro";
+import WordPressIcon from "./icons/additional/WordPressIcon.astro";
+import ReduxIcon from "./icons/additional/ReduxIcon.astro";
+import PythonIcon from "./icons/additional/PythonIcon.astro";
+import JupyterIcon from "./icons/additional/JupyterIcon.astro";
+---
+
+<h3
+  class='text-white'
+>
+  Additional Knowledge
+</h3>
+<section class='skills-container'>
+  <div class="skills-subcontainer">
+    <SkillCard skillName="Vite">
+      <ViteIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Postman">
+      <PostmanIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Git">
+      <GitIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="SASS">
+      <SASSIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="WordPress">
+      <WordPressIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Redux">
+      <ReduxIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Python">
+      <PythonIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Jupyter Notebook">
+      <JupyterIcon slot="skill-icon" />
+    </SkillCard>
+  </div>
+</section>

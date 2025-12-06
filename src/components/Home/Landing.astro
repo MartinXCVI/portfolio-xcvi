@@ -1,0 +1,69 @@
+---
+import { siteConfig } from "../../config/site.config"
+
+const { site, socials } = siteConfig
+
+// Icons
+import Github from 'simple-icons-astro/Github'
+import { FaLinkedin } from "react-icons/fa";
+import Mail from '@lucide/astro/icons/mail'
+import FolderOpen from '@lucide/astro/icons/folder-open'
+---
+
+<section class='home-wrapper wrapper' id='home-wrapper'>
+  <section class='home-section'>
+    <article class='dev-description'>
+      {/* DEV NAME */}
+      <h2
+        class='dev-name'
+      >
+        {site.fullName}
+      </h2>
+      {/* DEV ROLE */}
+      <h2
+        class='dev-job'
+      >
+        {site.tagline}
+      </h2>
+      {/* DEV BUTTONS SECTION */}
+      <section class='dev-buttons-section'>
+        {/* GITHUB BUTTON */}
+        <a
+          class='dev-btn'
+          href={socials.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          title='Github'
+        >
+          Github <Github class="dev-icon" />
+        </a>
+        {/* LINKEDIN BUTTON */}
+        <a
+          class='dev-btn'
+          href={socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          title='LinkedIn'
+        >
+          LinkedIn <FaLinkedin className='dev-icon' />
+        </a>
+        {/* EMAIL BUTTON */}
+        <a
+          class='dev-btn'
+          href={`mailto:${site.email}`}
+          title='Email'
+        >
+          Email <Mail class='dev-icon' />
+        </a>
+        {/* PROJECTS BUTTON */}
+        <a
+          class='dev-btn'
+          href="#portfolio-wrapper"
+          title='Projects'
+        >
+          Projects <FolderOpen class='dev-icon' />
+        </a>
+      </section>
+    </article>
+  </section>
+</section>

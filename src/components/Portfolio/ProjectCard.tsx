@@ -1,12 +1,14 @@
-import { IProjectCard } from "../../interfaces/IProjectCard";
+// Types/Interfaces
+import type { JSX } from "react"
+import type { IProjectCard } from "../../interfaces/IProjectCard";
+// Icons
 import { FaRegEye } from "react-icons/fa";
 import { RiGitRepositoryLine } from "react-icons/ri";
-import { JSX } from "react"
 
-const ProjectCard = ({ aosAnim, aosDuration, aosDelay, title, img, description, page, repository }: IProjectCard): JSX.Element => {
+const ProjectCard = ({ title, img, description, hasPreview, page, repository }: IProjectCard): JSX.Element => {
 
   return (
-    <div className='project-div' data-aos={aosAnim} data-aos-duration={aosDuration} data-aos-delay={aosDelay} data-aos-once="true">
+    <div className='project-div'>
       <h4 className='project-name'>{title}</h4>
       <figure className='project-fig'>
         <a
@@ -20,14 +22,16 @@ const ProjectCard = ({ aosAnim, aosDuration, aosDelay, title, img, description, 
       </figure>
       <p className='project-description'>{description}</p>
       <div className="project-links-div">
-        <a
-          className='project-link' 
-          href={page}
-          rel='noopener noreferrer' 
-          target='_blank'
-        >
-          Preview <FaRegEye className='project-link-icon' />
-        </a>
+        {hasPreview && (
+          <a
+            className='project-link' 
+            href={page}
+            rel='noopener noreferrer' 
+            target='_blank'
+          >
+            Preview <FaRegEye className='project-link-icon' />
+          </a>
+        )}
         <a
           className='project-link'  
           href={repository}
@@ -40,6 +44,5 @@ const ProjectCard = ({ aosAnim, aosDuration, aosDelay, title, img, description, 
     </div>
   )
 }
-
 
 export default ProjectCard

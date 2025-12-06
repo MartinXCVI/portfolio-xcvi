@@ -1,6 +1,7 @@
 @use '../../includes/colors' as colors;
 @use '../../includes/typography' as fonts;
 @use '../../includes/variables' as vars;
+@use '../../includes/mixins' as mx;
 
 .dev-signature {
   padding: 0.5rem 1rem;
@@ -19,6 +20,10 @@
 }
 
 .dev-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
   color: colors.$fifthColor;
   font-weight: 600;
   transition: vars.$trs-03;

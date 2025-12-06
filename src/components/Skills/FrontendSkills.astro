@@ -1,0 +1,54 @@
+---
+import SkillCard from "./SkillCard.astro"
+
+// Icons (techicons.dev)
+import HTMLIcon from "./icons/frontend/HTMLIcon.astro"
+import CSSIcon from "./icons/frontend/CSSIcon.astro"
+import JavaScriptIcon from "./icons/frontend/JavaScriptIcon.astro"
+import TypeScriptIcon from "./icons/frontend/TypeScriptIcon.astro"
+import AstroIcon from "./icons/frontend/AstroIcon.astro"
+import TailwindIcon from "./icons/frontend/TailwindIcon.astro"
+import NextIcon from "./icons/frontend/NextIcon.astro"
+import ReactIcon from "./icons/frontend/ReactIcon.astro"
+---
+
+<h3
+  class='text-white'
+>
+  Frontend Development
+</h3>
+<section class='skills-container'>
+  <div class="skills-subcontainer">
+    <SkillCard skillName="HTML">
+      <HTMLIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="CSS">
+      <CSSIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="JavaScript">
+      <JavaScriptIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="TypeScript">
+      <TypeScriptIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="React">
+      <ReactIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Next">
+      <NextIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Astro">
+      <AstroIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Tailwind CSS">
+      <TailwindIcon slot="skill-icon" />
+    </SkillCard>
+  </div>
+</section>

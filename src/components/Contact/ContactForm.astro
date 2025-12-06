@@ -1,0 +1,121 @@
+---
+// Icons
+import User from "@lucide/astro/icons/user"
+import Mail from "@lucide/astro/icons/mail"
+import Smartphone from "@lucide/astro/icons/smartphone"
+import SquarePen from "@lucide/astro/icons/square-pen"
+import MessageSquareText from "@lucide/astro/icons/message-square-text"
+import Send from "@lucide/astro/icons/send"
+import BrushCleaning from "@lucide/astro/icons/brush-cleaning"
+
+const btnSize: number = 20 as const
+const result: string | null = null
+---
+
+<section class="form-wrapper" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
+  <form id="contact-form">
+    <fieldset class='contact-fieldset'>
+      <legend class='form-legend'>Your query is welcome</legend>     
+      <section class="contact-field first-form-field">
+        {/* Full Name */}
+        <div class="form-div">
+          <label for="fullname-input" class="form-label">
+            <User class='form-icon' size={btnSize} /> Full name
+          </label>
+          <input
+            type="text"
+            name="fullname"
+            id="fullname-input"
+            placeholder='Your full name'
+            autocomplete='on'
+            required
+            aria-label='Full Name'
+          />
+        </div>
+        {/* Email */}
+        <div class="form-div">
+          <label for="email-input" class="form-label">
+            <Mail class='form-icon' size={btnSize} /> Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email-input"
+            placeholder='Your email'
+            autocomplete='on'
+            required
+            aria-label='Email'
+          />
+        </div>
+        {/* Phone */}
+        <div class="form-div">
+          <label for="phone-input" class="form-label">
+            <Smartphone class='form-icon' size={btnSize} /> Phone <span class='not-necessary-span'>{"(Optional))"}</span>
+          </label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone-input"
+            placeholder='Optionally your phone'
+            autocomplete='on'
+            aria-label='Phone'
+          />
+        </div>
+        {/* Subject */}
+        <div class="form-div">
+          <label for="subject-input" class="form-label">
+            <SquarePen class='form-icon' size={btnSize} /> Subject
+          </label>
+          <input
+            type="text"
+            name="subject"
+            id="subject-input"
+            placeholder='Your subject'
+            aria-label='Subject'
+          />
+        </div>
+        {/* Message */}
+        <div class="form-div textarea-div">
+          <label for="textarea-input" class="form-label">
+            <MessageSquareText class='form-icon' size={btnSize} /> Message
+          </label>
+          <textarea
+            name="textarea"
+            id="textarea-input"
+            rows={5}
+            placeholder='Your message'
+            required
+            aria-label='Message'
+          ></textarea>
+          {/* Additional configurations */}
+          <input type="hidden" name="from_name" value="MartinXCVI Portfolio" />
+          <input type="checkbox" name="botcheck" id="" style={{display: 'none'}} />
+        </div>
+      </section>
+    </fieldset>
+    {/* Form submit result and send/reset buttons */}
+    <div class='result-div'>
+      <p class='result-msg'>{result}</p>
+    </div>
+
+    <!--- Form buttons --->
+    <div class="form-buttons-div">
+      <button
+        class='form-btn send-btn'
+        type="submit"
+        title="Send button"
+        aria-label="Send Form"
+      >
+        <Send size={btnSize} /> Send
+      </button>
+      <button
+        class='form-btn reset-btn'
+        type="reset"
+        title="Reset button"
+        aria-label="Reset Form"
+      >
+        <BrushCleaning size={btnSize} /> Reset
+      </button>
+    </div>
+  </form>
+</section>

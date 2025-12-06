@@ -8,6 +8,8 @@
   @include mx.flexRow(vars.$evenly, center);
   .form-btn {
     width: 11rem;
+    @include mx.flexRowCenter();
+    gap: 0.25rem;
     border-radius: 3rem;
     padding: 0.5rem;
     text-align: center;

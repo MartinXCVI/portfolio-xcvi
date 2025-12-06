@@ -1,0 +1,44 @@
+---
+import SkillCard from "./SkillCard.astro"
+
+// Icons (techicons.dev)
+import MongoDBIcon from "./icons/backend/MongoDBIcon.astro"
+import NodeIcon from "./icons/backend/NodeIcon.astro"
+import ExpressIcon from "./icons/backend/ExpressIcon.astro"
+import JavaIcon from "./icons/backend/JavaIcon.astro"
+import PHPIcon from "./icons/backend/PHPIcon.astro"
+import MySQLIcon from "./icons/backend/MySQLIcon.astro"
+---
+
+<h3
+  class='text-white'
+>
+  Backend Development
+</h3>
+<section class='skills-container'>
+  <div class="skills-subcontainer">
+    <SkillCard skillName="MongoDB">
+      <MongoDBIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Node.js">
+      <NodeIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Express">
+      <ExpressIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="Java">
+      <JavaIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="PHP">
+      <PHPIcon slot="skill-icon" />
+    </SkillCard>
+
+    <SkillCard skillName="MySQL">
+      <MySQLIcon slot="skill-icon" />
+    </SkillCard>
+  </div>
+</section>

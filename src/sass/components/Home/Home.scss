@@ -51,7 +51,9 @@
   gap: 3rem;
   .about-btn {
     margin-right: 0rem;
-    .react-dev-icon {
+    .dev-icon {
+      height: 1.25rem;
+      font-size: 1.25rem;
       margin-left: 0.25rem;
     }
   }
@@ -78,7 +80,9 @@
     color: colors.$lightGray;
     box-shadow: 0rem 0rem 0rem colors.$black25;
   }
-  .react-dev-icon {
+  .dev-icon {
+    height: 1.25rem;
+    font-size: 1.25rem;
     margin-left: 0.25rem;
   }
 }

@@ -1,0 +1,31 @@
+---
+import WebAppProjects from "./WebAppProjects.astro"
+import WebsitesProjects from "./WebsitesProjects.astro"
+import BackendProjects from "./BackendProjects.astro"
+---
+
+
+<section class='portfolio-wrapper wrapper' id='portfolio-wrapper'>
+  <h2 class='portfolio-title text-white' data-aos="fade-down" data-aos-duration="1000">
+    Portfolio
+  </h2>
+  <hr class='breakline' data-aos="zoom-in" data-aos-duration="1500" />
+  <section class="portfolio-section">
+    <h3 class='projects-title' data-aos="fade-right" data-aos-duration="1000">
+      Web App Projects
+    </h3>
+    <WebAppProjects />
+  </section>
+  <section class="portfolio-section">
+    <h3 class='projects-title' data-aos="fade-right" data-aos-duration="1000">
+      Frontend Projects
+    </h3>
+    <WebsitesProjects />
+  </section>
+  <section class="portfolio-section">
+    <h3 class='projects-title' data-aos="fade-right" data-aos-duration="1000">
+      Backend Projects
+    </h3>
+    <BackendProjects />
+  </section>
+  </section>

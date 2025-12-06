@@ -2,7 +2,7 @@
 @use '../../includes/typography' as fonts;
 @use '../../includes/variables' as vars;
 
-.skill-icon {
+.skills-subcontainer svg {
   width: 2.5rem;
   transition: vars.$trs-05;
   &:hover {

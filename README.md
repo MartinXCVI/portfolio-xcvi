@@ -1,46 +1,46 @@
-# Portfolio Web App
+# Astro Starter Kit: Basics
 
-## 📄 Introduction
+```sh
+npm create astro@latest -- --template basics
+```
 
-My personal **portfolio**, consisting of 5 elemental sections: *Home*, *Portfolio*, *Skills*, *About*, and *Contact*. This portfolio showcases a diverse and varied compilation of projects which include full-stack applications, frontend templates and backend systems. Contact form powered with **Web3Forms**.
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
----
+## 🚀 Project Structure
 
-### Developed with
+Inside of your Astro project, you'll see the following folders and files:
 
-- React + Vite
-- TypeScript
-- AOS (Animate on Scroll)
-- React Icons
-- SASS
-- Web3Forms
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       └── index.astro
+└── package.json
+```
 
----
+To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
 
-## 👁️ View of the Project
+## 🧞 Commands
 
-### Live in Vercel
+All commands are run from the root of the project, from a terminal:
 
-[**Click here to see it live**](https://martinxcvi.vercel.app/)
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
----
+## 👀 Want to learn more?
 
-## 📚 Learn More
-
-- [React official documentation](https://react.dev/)
-- [TypeScript official documentation](https://www.typescriptlang.org/docs/)
-- [Vite official documentation](https://vitejs.dev/guide/)
-- [AOS library repository](https://github.com/michalsnik/aos/tree/v2)
-- [React Icons website](https://react-icons.github.io/react-icons/)
-- [SASS official documentation](https://sass-lang.com/)
-- [Web3Forms official documentation](https://web3forms.com/)
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🧑‍💻 Developer
-
-- [**MartinXCVI**](https://github.com/MartinXCVI)
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

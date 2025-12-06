@@ -1,0 +1,50 @@
+---
+import { siteConfig } from "../../config/site.config"
+
+import Github from 'simple-icons-astro/Github'
+import { FaLinkedin } from 'react-icons/fa'
+import Mail from '@lucide/astro/icons/mail'
+
+const btnSize: number = 20 as const
+const { site, socials } = siteConfig
+---
+
+<section class="about-card">
+  <h2 class='about-card-title'>More about me</h2>
+  <article class="about-article">
+    <p class='about-article-para'>
+      I&apos;m just a <strong>young man from Argentina</strong> that is interested in computer science, coding, web development, and building practical digital solutions.
+    </p>
+    <p class='about-article-para'>
+      From <em>front to back</em>, I develop full-stack applications with a focus on clean architecture, performance, and usability. I create responsive, maintainable software, following best practices and structuring code semantically for clarity and efficiency. 
+    </p>
+    <p class='about-article-para'>
+      I thrive in both <strong>independent projects</strong>, as well as in <strong>collaborative environments</strong>. I&apos;m <strong>always</strong> open to <strong>freelancing opportunities</strong>. <br/><a href={`mailto:${site.email}`}>Simply email me</a> if you are interested in working together.
+    </p>
+  </article>
+  <div class="about-btns-div">
+    {/* Github button */}
+    <a
+      class='about-btn'
+      href={socials.github}
+      target="_blank"
+    >
+      Github <Github class='dev-icon' size={btnSize} />
+    </a>
+    {/* LinkedIn button */}
+    <a
+      class='about-btn'
+      href={socials.linkedin}
+      target="_blank"
+    >
+      LinkedIn <FaLinkedin className='dev-icon' size={btnSize} />
+    </a>
+    {/* Email button */}
+    <a
+      class='about-btn'
+      href={`mailto:${site.email}`}
+    >
+      Email <Mail class='dev-icon' size={btnSize} />
+    </a>
+  </div>
+</section>

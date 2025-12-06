@@ -42,7 +42,10 @@
 
 .nav-item {
   padding: 0.25rem 0.5rem;
-  a {
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
     color: colors.$white;
     text-decoration: none;
     font-size: 0.9rem;
@@ -56,6 +59,46 @@
     }
     &:focus {
       color: colors.$secondColor;
+    }
+  }
+}
+
+/*---------- to 480px ----------*/
+
+@media all and (max-width: 480px) {
+  .navigation .nav-list {
+    .nav-item {
+      width: 75%;
+    }
+  }
+}
+
+/*---------- from 481 to 639px ----------*/
+
+@media all and (min-width: 481px) and (max-width: 639px) {
+  .navigation .nav-list {
+    .nav-item {
+      width: 60%;
+    }
+  }
+}
+
+/*---------- from 640 to 767px ----------*/
+
+@media all and (min-width: 640px) and (max-width: 767px) {
+  .navigation .nav-list {
+    .nav-item {
+      width: 45%;
+    }
+  }
+}
+
+/*---------- from 768 to 959px ----------*/
+
+@media all and (min-width: 768px) and (max-width: 959px) {
+  .navigation .nav-list {
+    .nav-item {
+      width: 35%;
     }
   }
 }
@@ -82,8 +125,6 @@
     width: 100%;
     flex-direction: column;
     .nav-item {
-      width: 100%;
-      text-align: center;
       font-size: 1rem;
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
@@ -96,22 +137,29 @@
 
   /*----- Burger menu -----*/
 
-  .burger-menu {
-    height: 100%;
-    width: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    cursor: pointer;
-    .burger-span {
-      width: 3.25rem;
-      height: 0.5rem;
-      margin-bottom: 0.45rem;
-      background-color: colors.$white;
-      border-radius: 3rem;
-    }
+  #open-menu, #close-menu {
+    color: colors.$white;
+    background-color: unset;
+  }
+
+  .open-menu-icon, .close-menu-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .open-menu-visible {
+    display: block;
+  }
+
+  .open-menu-hidden {
+    display: none;
+  }
+
+  .close-button-visible {
+    display: block;
+  }
+  .close-button-hidden {
+    display: none;
   }
 
   .navigation {
@@ -120,7 +168,6 @@
       height: 15rem;
       display: flex;
       flex-direction: column;
-      // position: absolute;
       top: 100%;
       left: 0;
       width: 100%;
@@ -136,7 +183,7 @@
     }
   }
 
-  .navigation .menu.hidden {
+  .navigation .menu-hidden {
     height: 0rem;
     opacity: 0;
     transform: translateY(-20px);
@@ -149,26 +196,12 @@
     }
   }
 
-  /*----- Hamburger bars animation -----*/
+}
 
-  .burger-span.clicked:nth-child(1) {
-    transform: rotate(45deg) translate(1rem, 0.60rem);
-    transition: ease-out 0.5s;
+/*---------- from 960px ----------*/
+
+@media all and (min-width: 960px) {
+  #open-menu, #close-menu {
+    display: none;
   }
-
-  .burger-span.clicked:nth-child(2) {
-    transform: scale(0.1);
-    transition: ease-out 0.5s;
-  }
-
-  .burger-span.clicked:nth-child(3) {
-    transform: rotate(135deg) translate(-0.65rem, 0.45rem);
-    transition: ease-out 0.5s;
-  }
-
-  .burger-span.not-clicked {
-    transform: rotate(0) translate(0);
-    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.15s;
-  }
-
 }

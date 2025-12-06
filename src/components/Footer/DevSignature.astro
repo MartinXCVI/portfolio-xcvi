@@ -1,0 +1,22 @@
+---
+import { getCurrentYear } from "../../utils/getCurrentYear"
+import Github from "simple-icons-astro/Github"
+
+import { siteConfig } from "../../config/site.config"
+
+const { socials } = siteConfig
+---
+
+<div class='dev-signature-div'>
+  <p class='dev-signature'>
+    <span>© { getCurrentYear() } </span>
+    <a
+      class='dev-github'
+      href={socials.github}
+      target='_blank'
+      rel='noopener noreferrer'
+    >
+      MartinXCVI <Github size={18} />
+    </a> | All rights reserved
+  </p>
+</div>

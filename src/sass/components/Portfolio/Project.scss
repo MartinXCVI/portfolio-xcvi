@@ -65,7 +65,7 @@
   padding: 0.25rem 0.5rem;
   border-radius: 3rem;
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   font-family: fonts.$ubuntuCond;
   transition: vars.$trs-02;
@@ -80,6 +80,7 @@
   }
   .project-link-icon {
     margin-left: 0.25rem;
+    font-size: 1.15rem;
   }
 }
 
