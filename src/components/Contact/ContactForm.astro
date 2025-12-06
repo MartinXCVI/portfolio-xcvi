@@ -8,16 +8,27 @@ import MessageSquareText from "@lucide/astro/icons/message-square-text"
 import Send from "@lucide/astro/icons/send"
 import BrushCleaning from "@lucide/astro/icons/brush-cleaning"
 
+import { siteConfig } from "../../config/site.config"
+
+const { site } = siteConfig
+
 const btnSize: number = 20 as const
 const result: string | null = null
+
+const ACCESS_KEY: string = import.meta.env.WEB3_FORMS_ACCESS_KEY
 ---
 
-<section class="form-wrapper" data-aos="zoom-in" data-aos-easing="ease-out-cubic" data-aos-duration="1500" data-aos-once="true">
-  <form id="contact-form">
+<section class="form-wrapper">
+  <form id="contact-form" method="POST">
     <fieldset class='contact-fieldset'>
-      <legend class='form-legend'>Your query is welcome</legend>     
+      <legend class='form-legend'>Your query is welcome</legend>
+      <!-- Web3Forms settings -->
+      <input type="hidden" name="access_key" value={ACCESS_KEY}>
+      <input type="hidden" name="from_name" value={site.siteName}>
+      <input type="checkbox" name="botcheck" id="" style="display: none;" aria-hidden="true">
+      <!-- * FIELDS * -->
       <section class="contact-field first-form-field">
-        {/* Full Name */}
+        <!-- Full name -->
         <div class="form-div">
           <label for="fullname-input" class="form-label">
             <User class='form-icon' size={btnSize} /> Full name
@@ -32,7 +43,7 @@ const result: string | null = null
             aria-label='Full Name'
           />
         </div>
-        {/* Email */}
+        <!-- Email -->
         <div class="form-div">
           <label for="email-input" class="form-label">
             <Mail class='form-icon' size={btnSize} /> Email
@@ -47,7 +58,7 @@ const result: string | null = null
             aria-label='Email'
           />
         </div>
-        {/* Phone */}
+        <!-- Phone -->
         <div class="form-div">
           <label for="phone-input" class="form-label">
             <Smartphone class='form-icon' size={btnSize} /> Phone <span class='not-necessary-span'>{"(Optional))"}</span>
@@ -61,7 +72,7 @@ const result: string | null = null
             aria-label='Phone'
           />
         </div>
-        {/* Subject */}
+        <!-- Subject -->
         <div class="form-div">
           <label for="subject-input" class="form-label">
             <SquarePen class='form-icon' size={btnSize} /> Subject
@@ -74,26 +85,23 @@ const result: string | null = null
             aria-label='Subject'
           />
         </div>
-        {/* Message */}
+        <!-- Message -->
         <div class="form-div textarea-div">
           <label for="textarea-input" class="form-label">
             <MessageSquareText class='form-icon' size={btnSize} /> Message
           </label>
           <textarea
-            name="textarea"
+            name="message"
             id="textarea-input"
             rows={5}
             placeholder='Your message'
             required
             aria-label='Message'
           ></textarea>
-          {/* Additional configurations */}
-          <input type="hidden" name="from_name" value="MartinXCVI Portfolio" />
-          <input type="checkbox" name="botcheck" id="" style={{display: 'none'}} />
         </div>
       </section>
     </fieldset>
-    {/* Form submit result and send/reset buttons */}
+    <!-- Form submit result and send/reset buttons -->
     <div class='result-div'>
       <p class='result-msg'>{result}</p>
     </div>
@@ -118,4 +126,5 @@ const result: string | null = null
       </button>
     </div>
   </form>
+  <script src="../../services/contactForm.ts"></script>
 </section>
