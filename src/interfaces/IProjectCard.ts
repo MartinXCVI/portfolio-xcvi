@@ -1,4 +1,5 @@
 export interface IProjectCard {
+  className?: string;
   title: string;
   img: string;
   description: string;

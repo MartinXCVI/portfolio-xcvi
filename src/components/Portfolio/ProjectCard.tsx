@@ -7,10 +7,10 @@ import { RiGitRepositoryLine } from "react-icons/ri";
 
 const btnSize: number = 20 as const
 
-const ProjectCard = ({ title, img, description, hasPreview, page, repository }: IProjectCard): JSX.Element => {
+const ProjectCard = ({ className, title, img, description, hasPreview, page, repository }: IProjectCard): JSX.Element => {
 
   return (
-    <div className='project-div'>
+    <div className={`project-div ${className}`}>
       <h4 className='project-name'>{title}</h4>
       <figure className='project-fig'>
         <a
