@@ -5,7 +5,7 @@ import { initSkillsAnimations } from "./skills.animations";
 import { initAboutAnimations } from "./about.animations";
 import { initContactAnimations } from "./contact.animations";
 
-function initAllAnimations(): void {
+export function initAllAnimations(): void {
   initHeaderAnimations()
   initLandingAnimations()
   initPortfolioAnimations()

@@ -18,7 +18,7 @@ export function initContactAnimations(): void {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".contact-card-title",
-        start: "top 75%",
+        start: "top 80%",
         toggleActions: "play none none none"
       }
     }
@@ -37,7 +37,7 @@ export function initContactAnimations(): void {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".contact-card-text",
-        start: "top 75%",
+        start: "top 80%",
         toggleActions: "play none none none"
       }
     }

@@ -10,7 +10,10 @@ const btnSize: number = 20 as const
 const ProjectCard = ({ className, title, img, description, hasPreview, page, repository }: IProjectCard): JSX.Element => {
 
   return (
-    <div className={`project-div ${className}`}>
+    <div
+      className={`project-div ${className}`}
+      suppressHydrationWarning
+    >
       <h4 className='project-name'>{title}</h4>
       <figure className='project-fig'>
         <a

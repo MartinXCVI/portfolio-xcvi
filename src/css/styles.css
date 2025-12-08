@@ -652,11 +652,9 @@ button {
 
 .portfolio-projects {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  flex-wrap: wrap;
 }
 
 /*---------- to 480px ----------*/
@@ -673,7 +671,7 @@ button {
 }
 @media all and (max-width: 767px) {
   .portfolio-projects {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
 @media all and (min-width: 768px) {
@@ -683,11 +681,11 @@ button {
 }
 @media all and (min-width: 768px) and (max-width: 959px) {
   .portfolio-projects {
-    justify-content: space-evenly;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 .project-div {
-  width: 30%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -735,6 +733,7 @@ button {
 }
 
 .project-description {
+  flex: 1;
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
@@ -742,6 +741,7 @@ button {
 
 .project-links-div {
   width: 100%;
+  margin-top: auto;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -790,7 +790,6 @@ button {
 /*---------- to 480px ----------*/
 @media all and (max-width: 480px) {
   .project-div {
-    width: 100%;
     padding: 1rem;
   }
 }
@@ -799,25 +798,12 @@ button {
     width: 8rem;
   }
 }
-@media all and (min-width: 481px) and (max-width: 767px) {
-  .project-div {
-    width: 100%;
-  }
-}
 @media all and (min-width: 576px) and (max-width: 767px) {
   .project-link {
     width: 11.5rem;
   }
 }
-@media all and (max-width: 767px) {
-  .project-div {
-    margin-bottom: 1.5rem;
-  }
-}
 @media all and (min-width: 768px) and (max-width: 959px) {
-  .project-div {
-    width: 47%;
-  }
   .project-link {
     width: 7rem;
   }
@@ -828,9 +814,6 @@ button {
   }
 }
 @media all and (min-width: 960px) and (max-width: 1023px) {
-  .project-div {
-    width: 45%;
-  }
   .project-link {
     width: 6.5rem;
   }

@@ -26,9 +26,9 @@
 
 .portfolio-projects {
   width: 100%;
-  @include mx.flexRowCenter();
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  flex-wrap: wrap;
 }
 
 /*---------- to 480px ----------*/
@@ -52,7 +52,7 @@
 @media all and (max-width: 767px) {
 
   .portfolio-projects {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -69,6 +69,6 @@
 @media all and (min-width: 768px) and (max-width: 959px) {
 
   .portfolio-projects {
-    justify-content: space-evenly;
+    grid-template-columns: repeat(2, 1fr);
   }
 }

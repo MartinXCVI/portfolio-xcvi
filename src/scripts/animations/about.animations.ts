@@ -18,7 +18,7 @@ export function initAboutAnimations(): void {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".about-card-title",
-        start: "top 75%",
+        start: "top 80%",
         toggleActions: "play none none none"
       }
     }
@@ -37,7 +37,7 @@ export function initAboutAnimations(): void {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".about-card-title",
-        start: "top 75%",
+        start: "top 80%",
         toggleActions: "play none none none"
       }
     }
@@ -56,7 +56,7 @@ export function initAboutAnimations(): void {
       delay: 0.9,
       scrollTrigger: {
         trigger: ".about-card-title",
-        start: "top 75%",
+        start: "top 80%",
         toggleActions: "play none none none"
       }
     }

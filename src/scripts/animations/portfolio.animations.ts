@@ -31,7 +31,8 @@ function animateCards(selector: string, config: { axis: string; from: number }):
         start: "top 80%",
         toggleActions: "play none none none"
       },
-      delay: index * 0.12
+      delay: index * 0.12,
+      clearProps: "all" // Clears inline styles after animation
     }
 
     gsap.fromTo(card as Element, fromProps, toProps)

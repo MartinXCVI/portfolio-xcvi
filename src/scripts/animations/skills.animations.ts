@@ -16,7 +16,7 @@ export function initSkillsAnimations():void {
       ease: "power3.out",
       scrollTrigger: {
         trigger: ".skills-section-title",
-        start: "top 75%",
+        start: "top 80%",
         toggleActions: "play none none none"
       }
     }

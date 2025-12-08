@@ -4,7 +4,7 @@
 @use '../../includes/mixins' as mx;
 
 .project-div {
-  width: 30%;
+  width: 100%;
   @include mx.flexColCenter();
   padding: 1rem 0.5rem;
   background-color: colors.$black10;
@@ -15,6 +15,15 @@
   transform-style: preserve-3d;
   backface-visibility: hidden;
   transition: vars.$trs-03;
+
+  // RELEVANT: Initial state for animations - prevents hydration mismatch
+  &.web-app-project-card,
+  &.website-project-card,
+  &.backend-project-card {
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
   &:hover {
     box-shadow: 0rem 0.1rem 0.2rem colors.$black25;
   }
@@ -47,6 +56,7 @@
 }
 
 .project-description {
+  flex: 1;
   font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 0.75rem;
@@ -54,6 +64,7 @@
 
 .project-links-div {
   width: 100%;
+  margin-top: auto;
   @include mx.flexRow(vars.$evenly, center);
 }
 
@@ -104,8 +115,7 @@
 
 @media all and (max-width: 480px) {
  
-  .project-div {
-    width: 100%;  
+  .project-div { 
     padding: 1rem;
   }
 }
@@ -117,13 +127,6 @@
   }
 }
 
-@media all and (min-width: 481px) and (max-width: 767px) {
-
-  .project-div {
-    width: 100%;
-  }
-}
-
 @media all and (min-width: 576px) and (max-width: 767px) {
 
   .project-link {
@@ -131,18 +134,7 @@
   }
 }
 
-@media all and (max-width: 767px) {
-
-  .project-div {
-    margin-bottom: 1.5rem;
-  }
-}
-
 @media all and (min-width: 768px) and (max-width: 959px) {
-
-  .project-div {
-    width: 47%;
-  }
 
   .project-link {
     width: 7rem;
@@ -157,10 +149,6 @@
 }
 
 @media all and (min-width: 960px) and (max-width: 1023px) {
-
-  .project-div {
-    width: 45%;
-  }
 
   .project-link {
     width: 6.5rem;
