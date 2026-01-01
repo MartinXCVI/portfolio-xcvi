@@ -1,5 +1,4 @@
 ---
-import { getCurrentYear } from "../../utils/getCurrentYear"
 import Github from "simple-icons-astro/Github"
 
 import { siteConfig } from "../../config/site.config"
@@ -9,7 +8,7 @@ const { socials } = siteConfig
 
 <div class='dev-signature-div'>
   <p class='dev-signature'>
-    <span>© { getCurrentYear() } </span>
+    <span>© <span id="current-year"></span></span>
     <a
       class='dev-github'
       href={socials.github}
@@ -20,3 +19,11 @@ const { socials } = siteConfig
     </a> | All rights reserved
   </p>
 </div>
+
+<script>
+  import { getCurrentYear } from "../../utils/getCurrentYear";
+
+  const currentYear = document.getElementById("current-year")
+
+  if(currentYear) currentYear.textContent = getCurrentYear().toString()
+</script>
